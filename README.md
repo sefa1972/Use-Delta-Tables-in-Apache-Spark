@@ -44,6 +44,7 @@ Use this notebook to explore Delta Lake functionality
 
 # define the schema
 
+
 schema = StructType() \
 
     .add("ProductID", IntegerType(), True) \
