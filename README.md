@@ -37,6 +37,7 @@ Tables in Microsoft Fabric Lakehouse are based on the open-source Delta Lake for
 # Delta Lake tables
 
 Use this notebook to explore Delta Lake functionality
+
  - Add a code cell and paste this code:
    
    from pyspark.sql.types import StructType, IntegerType, StringType, DoubleType
@@ -44,6 +45,7 @@ Use this notebook to explore Delta Lake functionality
 # define the schema
 
 schema = StructType() \
+
     .add("ProductID", IntegerType(), True) \
     
     .add("ProductName", StringType(), True) \
@@ -110,6 +112,7 @@ SELECT * FROM products;
 
 ✅ Explore Table Versioning
 
+
 %%sql
 
 UPDATE products
@@ -117,6 +120,7 @@ UPDATE products
 SET ListPrice = ListPrice * 0.9
 
 WHERE Category = 'Mountain Bikes';
+
 
 %%sql
 
@@ -142,6 +146,7 @@ display(original_data)
 
 -- Create a temporary view
 
+
 CREATE OR REPLACE TEMPORARY VIEW products_view AS
 
 SELECT Category, COUNT(*) AS NumProducts, MIN(ListPrice) AS MinPrice, MAX(ListPrice) AS MaxPrice, AVG(ListPrice) AS AvgPrice
@@ -154,6 +159,7 @@ SELECT * FROM products_view
 
 ORDER BY Category;
 
+
 %%sql
 
 SELECT Category, NumProducts
@@ -164,6 +170,7 @@ ORDER BY NumProducts DESC
 
 LIMIT 10;
 
+
 ✅ Analyze With PySpark
 
 from pyspark.sql.functions import col, desc
@@ -171,6 +178,7 @@ from pyspark.sql.functions import col, desc
 df_products = spark.sql("SELECT Category, MinPrice, MaxPrice, AvgPrice FROM products_view").orderBy(col("AvgPrice").desc())
 
 display(df_products.limit(6))
+
 
 ✅ Use Delta Tables for Streaming (IoT Simulation – Optional)
 
