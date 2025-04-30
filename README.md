@@ -184,3 +184,8 @@ display(df_products.limit(6))
 ✅ Use Delta Tables for Streaming (IoT Simulation – Optional)
 
 Delta Lake supports streaming data via Spark Structured Streaming API, which allows Delta tables to act as both sinks and sources.
+
+# 👤 Author >> Sefa Öztürk
+IT Trainee | Azure Data Engineer in progress
+
+📇 LinkedIn: https://www.linkedin.com/in/sefa-ozturk1972
